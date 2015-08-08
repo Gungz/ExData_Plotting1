@@ -6,6 +6,6 @@ household_power_consumption_filtered <- household_power_consumption[Date %betwee
 household_power_consumption_filtered <- household_power_consumption_filtered[, Global_active_power:=as.numeric(Global_active_power)]
 household_power_consumption_filtered <- as.data.frame(household_power_consumption_filtered) 
 household_power_consumption_filtered$Real_DateTime <- strptime(household_power_consumption_filtered$DateTime, format = "%d/%m/%Y %H:%M:%S")
-with(household_power_consumption_filtered, plot(Real_DateTime, Global_active_power, type = "l", xlab = "", main = "", ylab = "Global Active Power (kilowatts)"))
+with(household_power_consumption_filtered, plot(Real_DateTime, Global_active_power, type = "l", xlab = "", main = "", ylab = "Global Active Power (kilowatts)", cex.lab = 0.7, cex.axis = 0.7))
 dev.copy(png, file="plot2.png")
 dev.off()

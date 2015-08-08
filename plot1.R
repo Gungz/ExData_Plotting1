@@ -3,6 +3,6 @@ household_power_consumption <- fread("household_power_consumption.txt", header =
 household_power_consumption$Date <- as.Date(x = household_power_consumption$Date, format = "%d/%m/%Y")
 household_power_consumption_filtered <- household_power_consumption[Date %between% c(as.Date("2007-02-01"), as.Date("2007-02-02"))]
 household_power_consumption_filtered <- household_power_consumption_filtered[, Global_active_power:=as.numeric(Global_active_power)]
-hist(household_power_consumption_filtered$Global_active_power, xlab = "Global Active Power (kilowatts)", ylab = "Frequency", col = "Red", main = "Global Active Power")
+hist(household_power_consumption_filtered$Global_active_power, xlab = "Global Active Power (kilowatts)", ylab = "Frequency", col = "Red", main = "Global Active Power", cex.lab = 0.7, cex.axis = 0.7, cex.main = 0.9)
 dev.copy(png, file="plot1.png")
 dev.off()

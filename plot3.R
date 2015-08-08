@@ -6,9 +6,9 @@ household_power_consumption_filtered <- household_power_consumption[Date %betwee
 household_power_consumption_filtered <- household_power_consumption_filtered[, Global_active_power:=as.numeric(Global_active_power)]
 household_power_consumption_filtered <- as.data.frame(household_power_consumption_filtered) 
 household_power_consumption_filtered$Real_DateTime <- strptime(household_power_consumption_filtered$DateTime, format = "%d/%m/%Y %H:%M:%S")
-with(household_power_consumption_filtered, plot(Real_DateTime, Sub_metering_1, type = "s", xlab = "", main = "", ylab = "Energy sub metering"))
+with(household_power_consumption_filtered, plot(Real_DateTime, Sub_metering_1, type = "s", xlab = "", main = "", ylab = "Energy sub metering", cex.axis = 0.7, cex.lab = 0.7))
 with(household_power_consumption_filtered, points(Real_DateTime, Sub_metering_2, type = "s", col="Red"))
 with(household_power_consumption_filtered, points(Real_DateTime, Sub_metering_3, type = "s", col="Blue"))
-legend("topright", col = c("black", "red", "blue"), legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), lwd=1)
+legend("topright", col = c("black", "red", "blue"), legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), lwd=1, cex = 0.8, xjust = 0.5)
 dev.copy(png, file="plot3.png")
 dev.off()
